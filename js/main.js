@@ -12,7 +12,7 @@ function writeCode(prefix, code, fn) {
       console.log(fn)
       fn && fn.call()
     }
-  }, 10);
+  }, 1);
 }
 
 
@@ -79,8 +79,6 @@ width: 100%;
 }
 `
 
-var result2 = ''
-
 var md = `# 标题一
 # 标题一
 # 标题一
@@ -90,7 +88,7 @@ var md = `# 标题一
 writeCode('', result, () => {
   createPaper(() => {
     console.log('paper准备好了')
-    writeCode(result, result2, () => {
+    writeCode(result, '', () => {
       writeMarkdown(md,()=>{})
     })
   })
@@ -117,5 +115,5 @@ function writeMarkdown(markdown, fn) {
       window.clearInterval(id)
       fn.call()
     }
-  }, 10);
+  }, 1);
 }
